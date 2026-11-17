@@ -52,10 +52,6 @@ jobs:
           tags: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
-          # 国内网络构建时可打开下面两个镜像源（取消注释即可）
-          build-args: |
-            APT_MIRROR=https://mirrors.ustc.edu.cn/debian
-            PIP_INDEX_URL=https://mirrors.ustc.edu.cn/pypi/simple
-            YARN_REGISTRY=https://registry.npmmirror.com
+          # GitHub Actions 在境外，直接走官方源即可，不需要国内镜像
           cache-from: type=gha
           cache-to: type=gha,mode=max
