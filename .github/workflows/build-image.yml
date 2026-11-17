@@ -5,14 +5,7 @@ name: Build & Push Agents Anywhere Server
 # 群晖 NAS 之后只需拉取镜像，不用再在本地访问 GitHub / 编译源码。
 
 on:
-  workflow_dispatch:          # 允许在 Actions 页面手动点运行
-  push:
-    branches: [main]
-    paths:
-      - 'server/**'
-      - 'web-next/**'
-      - 'docker/**'
-      - '.github/workflows/build-image.yml'
+  workflow_dispatch:          # 只允许在 Actions 页面手动点运行，提交代码不再自动触发
 
 env:
   REGISTRY: ghcr.io
